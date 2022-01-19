@@ -1,10 +1,11 @@
 ---
 - name: ensure git and base-devel is installed
+  become: true
   community.general.pacman:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   with_items:
     - git
     - base-devel
 
-- name: ensure yay is installed
+# - name: ensure yay is installed
