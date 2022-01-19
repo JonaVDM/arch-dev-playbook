@@ -1,0 +1,5 @@
+---
+- name: Setup Arch workstation
+  hosts: all
+  tasks:
+    - import_task: tasks/yay.yml
