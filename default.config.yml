@@ -1,0 +1,19 @@
+---
+pacman_packages:
+  - neofetch
+  - curl
+  - net-tools
+  - git
+  - base-devel
+  # - firefox
+  # - alacritty
+
+# aur_packages:
+  # - ncspot
+
+# enable_gnome: false
+# enable_wake_on_lan: false
+# install_gvm: false
+# install_pyenv: false
+# install_nvm: false
+# isntall_rust: false

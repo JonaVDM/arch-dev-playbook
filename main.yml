@@ -1,5 +1,31 @@
 ---
 - name: Setup Arch workstation
   hosts: all
+
+  vars_files:
+    - default.config.yml
+
   tasks:
     - import_tasks: "tasks/yay.yml"
+
+    - name: Ensure pacman packages are installed
+      become: true
+      community.general.pacman:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{pacman_packages}}"
+
+    # - name: ensure AUR packages are installed
+    #   community.general.pacman:
+    #     name: "{{ item }}"
+    #     state: latest
+    #     executable: yay
+    #     # extra_args: --builddir /var/cache/yay
+    #   with_items: "{{aur_packages}}"
+
+    # - name: ensure current packages are upgraded
+    # - name: ensure nvm is installed (when needed)
+    # - name: ensure gvm is installed (when needed)
+    # - name: ensure pyenv is installed (when needed)
+    # - name: ensure gnome is installed (when needed)
+    # - name: ensure wake on lan is enabled (when needed)
