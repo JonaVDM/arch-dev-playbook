@@ -1,0 +1,22 @@
+---
+- name: Ensure that the required packages are installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - base-devel
+    - openssl
+    - zlib
+    - xz
+    - git
+
+- name: Ensure the installer is downloaded
+  get_url:
+    url: https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer
+    dest: /tmp/pyenv-install.sh
+
+- name: ensure pyenv is installed
+  shell: |
+    bash /tmp/pyenv-install.sh
+  args:
+    creates: ~/.pyenv/README.md

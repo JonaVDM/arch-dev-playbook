@@ -1,11 +1,11 @@
 ---
-- name: check if yay is installed
+- name: Check if yay is installed
   shell: yay --version
   register: yay_version_cmd
   changed_when: false
   ignore_errors: true
 
-- name: ensure git and base-devel is installed
+- name: Ensure git and base-devel is installed
   become: true
   community.general.pacman:
     name: "{{ item }}"
@@ -14,7 +14,7 @@
     - git
     - base-devel
 
-- name: ensure yay is installed
+- name: Ensure yay is installed
   when: yay_version_cmd is failed
   shell: |
     rm -rf yay-bin

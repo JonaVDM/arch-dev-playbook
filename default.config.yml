@@ -8,12 +8,13 @@ pacman_packages:
   # - firefox
   # - alacritty
 
+install_pyenv: true
+
 # aur_packages:
   # - ncspot
 
 # enable_gnome: false
 # enable_wake_on_lan: false
 # install_gvm: false
-# install_pyenv: false
 # install_nvm: false
 # isntall_rust: false
