@@ -13,6 +13,7 @@
 
     - import_tasks: "tasks/yay.yml"
     - import_tasks: "tasks/dotfiles.yml"
+    - import_tasks: "tasks/tmux.yml"
 
     - import_tasks: "tasks/pyenv.yml"
       when: install_pyenv
