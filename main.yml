@@ -16,9 +16,6 @@
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
 
-    - import_tasks: "tasks/pyenv.yml"
-      when: install_pyenv
-
     - name: Ensure pacman packages are installed
       become: true
       community.general.pacman:
@@ -26,16 +23,18 @@
         state: latest
       with_items: "{{ pacman_packages }}"
 
-    # - name: ensure AUR packages are installed
-    #   community.general.pacman:
-    #     name: "{{ item }}"
-    #     state: latest
-    #     executable: yay
-    #     # extra_args: --builddir /var/cache/yay
-    #   with_items: "{{aur_packages}}"
+    - name: ensure AUR packages are installed
+      community.general.pacman:
+        name: "{{ item }}"
+        state: latest
+        executable: yay
+      with_items: "{{aur_packages}}"
 
-    # - name: ensure nvm is installed (when needed)
-    # - name: ensure gvm is installed (when needed)
-    # - name: ensure pyenv is installed (when needed)
+    - name: Ensure wake on lan is on and enabled
+      ansible.builtin.service:
+        name: wol-systemd@{{ wol_interface }}
+        state: started
+        enabled: true
+      when: enable_wake_on_lan
+
     # - name: ensure gnome is installed (when needed)
-    # - name: ensure wake on lan is enabled (when needed)

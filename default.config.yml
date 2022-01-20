@@ -6,6 +6,7 @@ pacman_packages:
   - git
   - base-devel
   - zsh
+  - rust
   # - firefox
   # - alacritty
 
@@ -22,13 +23,13 @@ dotfiles_folders:
   - name: alacritty
     dest: ~/.config/alacritty
 
-install_pyenv: true
-
-# aur_packages:
+aur_packages:
+  - nvm
+  - wol-systemd
+  - gvm
+  - pyenv
   # - ncspot
 
 # enable_gnome: false
-# enable_wake_on_lan: false
-# install_gvm: false
-# install_nvm: false
-# isntall_rust: false
+enable_wake_on_lan: false
+wol_interface: en0
