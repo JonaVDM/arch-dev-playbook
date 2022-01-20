@@ -1,0 +1,22 @@
+---
+- name: Download dotfiles
+  git:
+    accept_hostkey: true
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_folder }}"
+    track_submodules: true
+    update: false
+
+- name: Link files
+  file:
+    src: "{{ dotfiles_folder }}/{{ item.name }}"
+    dest: "{{ item.dest }}/{{ item.name }}"
+    state: link
+  with_items: "{{ dotfiles_files }}"
+
+- name: Link folders
+  file:
+    src: "{{ dotfiles_folder }}/{{ item.name }}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items: "{{ dotfiles_folders }}"

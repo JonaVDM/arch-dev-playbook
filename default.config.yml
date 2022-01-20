@@ -5,8 +5,23 @@ pacman_packages:
   - net-tools
   - git
   - base-devel
+  - zsh
+  - neovim
   # - firefox
   # - alacritty
+
+dotfiles_folder: ~/.dotfiles
+dotfiles_repo: https://github.com/JonaVDM/dotfiles.git
+dotfiles_files:
+  - name: .zshrc
+    dest: "~"
+  - name: .gitconfig
+    dest: "~"
+  - name: .tmux.conf
+    dest: "~"
+dotfiles_folders:
+  - name: alacritty
+    dest: ~/.config/alacritty
 
 install_pyenv: true
 

@@ -6,7 +6,16 @@
     - default.config.yml
 
   tasks:
+    - name: ensure pacman cache is up to data
+      become: true
+      community.general.pacman:
+        update_cache: true
+
     - import_tasks: "tasks/yay.yml"
+    - import_tasks: "tasks/dotfiles.yml"
+
+    - import_tasks: "tasks/pyenv.yml"
+      when: install_pyenv
 
     - name: Ensure pacman packages are installed
       become: true
@@ -15,8 +24,6 @@
         state: latest
       with_items: "{{pacman_packages}}"
 
-    - import_tasks: "tasks/pyenv.yml"
-      when: install_pyenv
     # - name: ensure AUR packages are installed
     #   community.general.pacman:
     #     name: "{{ item }}"
@@ -25,6 +32,9 @@
     #     # extra_args: --builddir /var/cache/yay
     #   with_items: "{{aur_packages}}"
 
+    # - name: ensure tmux package maneger is installed
+    # - name: ensure nvim config is downloaded
+    # - name: ensure dotfiles are downloaded
     # - name: ensure current packages are upgraded
     # - name: ensure nvm is installed (when needed)
     # - name: ensure gvm is installed (when needed)
