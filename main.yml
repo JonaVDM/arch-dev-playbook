@@ -14,6 +14,7 @@
     - import_tasks: "tasks/yay.yml"
     - import_tasks: "tasks/dotfiles.yml"
     - import_tasks: "tasks/tmux.yml"
+    - import_tasks: "tasks/nvim.yml"
 
     - import_tasks: "tasks/pyenv.yml"
       when: install_pyenv
@@ -23,7 +24,7 @@
       community.general.pacman:
         name: "{{ item }}"
         state: latest
-      with_items: "{{pacman_packages}}"
+      with_items: "{{ pacman_packages }}"
 
     # - name: ensure AUR packages are installed
     #   community.general.pacman:
@@ -33,10 +34,6 @@
     #     # extra_args: --builddir /var/cache/yay
     #   with_items: "{{aur_packages}}"
 
-    # - name: ensure tmux package maneger is installed
-    # - name: ensure nvim config is downloaded
-    # - name: ensure dotfiles are downloaded
-    # - name: ensure current packages are upgraded
     # - name: ensure nvm is installed (when needed)
     # - name: ensure gvm is installed (when needed)
     # - name: ensure pyenv is installed (when needed)

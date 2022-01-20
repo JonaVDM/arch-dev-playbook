@@ -5,6 +5,12 @@
     repo: "{{ dotfiles_repo }}"
     dest: "{{ dotfiles_folder }}"
 
+- name: Create .config directory
+  ansible.builtin.file:
+    path: ~/.config
+    state: directory
+    mode: '0755'
+
 - name: Link files
   file:
     src: "{{ dotfiles_folder }}/{{ item.name }}"
