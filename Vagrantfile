@@ -8,6 +8,9 @@ Vagrant.configure("2") do |config|
     vb.memory = "512"
   end
 
+  config.ssh.username = 'vagrant'
+  config.ssh.password = 'vagrant'
+
   config.vm.provision "py", type: "shell" do |s|
     s.inline = <<-SHELL
       pacman -S --noconfirm python

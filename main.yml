@@ -15,6 +15,7 @@
     - import_tasks: "tasks/dotfiles.yml"
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
+    - import_tasks: "tasks/shell.yml"
 
     - name: Ensure pacman packages are installed
       become: true
@@ -37,4 +38,52 @@
         enabled: true
       when: enable_wake_on_lan
 
-    # - name: ensure gnome is installed (when needed)
+    - name: Make sure the background image is downloaded
+      get_url:
+        url: "{{ background_url }}"
+        dest: ~/background.jpg
+      when: background_url != ""
+
+    - name: Make sure nvm is installed
+      shell: >
+        curl https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | sh
+        creates=~/.nvm/nvm.sh
+      when: nvm_version != ""
+
+    - name: Make sure the right version of node is installed
+      when: nvm_install_version != ""
+      shell: |
+        source ~/.nvm/nvm.sh
+        nvm install {{ nvm_install_version }}
+        nvm alias default {{ nvm_install_version }}
+        nvm use {{ nvm_install_version }}
+        creates="~/.nvm/versions/node/v{{ nvm_install_version }}"
+
+    - name: Make sure the right version of python is installed
+      when: pyenv_install_version != ""
+      shell: |
+        pyenv install {{ pyenv_install_version }}
+        pyenv global {{ pyenv_install_version }}
+        creates="~/.pyenv/versions/{{ pyenv_install_version }}"
+
+    - name: Make sure the right version of go is installed
+      when: gvm_install_version != ""
+      shell: |
+        source ~/.gvm/scripts/gvm
+        gvm install {{ gvm_install_version }} -B
+        gvm use {{ gvm_install_version }} --default
+        creates="~/.gvm/gos/{{ gvm_install_version }}"
+
+    - name: Ensure gnome is installed
+      when: enable_gnome
+      community.general.pacman:
+        name: xorg xorg-server gnome
+        state: latest
+
+    - name: Ensure service gdm is running
+      when: enable_gnome
+      ansible.builtin.service:
+        name: gdm
+        enabled: true
+        state: started
+
