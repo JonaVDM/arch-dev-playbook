@@ -1,0 +1,44 @@
+---
+- name: Ensure gnome is installed
+  become: true
+  community.general.pacman:
+    name: xorg xorg-server gnome
+    state: latest
+
+- name: Ensure service gdm is running
+  become: true
+  ansible.builtin.service:
+    name: gdm
+    # enabled: true
+    state: started
+
+- name: create all the needed dirs
+  ansible.builtin.file:
+    path: ~/.local/share/gnome-shell/extensions/{{ item.name }}
+    state: directory
+  with_items: "{{ gnome_extensions }}"
+
+- name: Download gnome extensions
+  ansible.builtin.unarchive:
+    src: https://extensions.gnome.org/extension-data/{{ item.name | replace('@', '') }}.v{{ item.version }}.shell-extension.zip
+    dest: ~/.local/share/gnome-shell/extensions/{{ item.name }}
+    remote_src: true
+  with_items: "{{ gnome_extensions }}"
+
+# - name: enable extensions
+#   community.general.dconf:
+#     key: /org/gnome/shell/enabled-extensions
+#     value: "{{ item.name }}"
+#     state: present
+#   with_items: "{{ gnome_extensions }}"
+- name: Make sure the background image is downloaded
+  get_url:
+    url: "{{ background_url }}"
+    dest: ~/Pictures/background.jpg
+  when: background_url != ""
+  # TODO: Change to this background
+
+- name: Set the background image
+  ansible.builtin.command: >
+    gsettings set org.gnome.desktop.background picture-uri
+    'file://{{ ansible_env.HOME }}/Pictures/background.jpg'

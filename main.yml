@@ -16,6 +16,8 @@
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"
+    - import_tasks: "tasks/gnome.yml"
+      when: enable_gnome
 
     - name: Ensure pacman packages are installed
       become: true
@@ -36,14 +38,8 @@
       ansible.builtin.service:
         name: wol@{{ wol_interface }}
         state: started
-        enabled: true
+        # enabled: true
       when: enable_wake_on_lan
-
-    - name: Make sure the background image is downloaded
-      get_url:
-        url: "{{ background_url }}"
-        dest: ~/background.jpg
-      when: background_url != ""
 
     - name: Make sure nvm is installed
       shell: >
@@ -74,19 +70,3 @@
         gvm install {{ gvm_install_version }} -B
         gvm use {{ gvm_install_version }} --default
         creates="~/.gvm/gos/{{ gvm_install_version }}"
-
-    - name: Ensure gnome is installed
-      become: true
-      when: enable_gnome
-      community.general.pacman:
-        name: xorg xorg-server gnome
-        state: latest
-
-    - name: Ensure service gdm is running
-      become: true
-      when: enable_gnome
-      ansible.builtin.service:
-        name: gdm
-        enabled: true
-        state: started
-

@@ -42,3 +42,8 @@ gvm_install_version: go1.17.6
 nvm_install_version: "16.13.2"
 nvm_version: "v0.39.1"
 pyenv_install_version: "3.10.1"
+
+# https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v65.shell-extension.zip
+gnome_extensions:
+  - name: dash-to-dock@micxgx.gmail.com
+    version: 71
