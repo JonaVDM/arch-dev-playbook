@@ -1,0 +1,18 @@
+---
+- name: Link settings out of dotfiles
+  ansible.builtin.file:
+    src: ~/.dotfiles/code/settings.json
+    dest: ~/.config/VSCodium/User/settings.json
+    state: link
+
+- name: Link snippets out of dotfiles
+  ansible.builtin.file:
+    src: ~/.dotfiles/code/snippets
+    dest: ~/.config/VSCodium/User/snippets
+    state: link
+
+- name: Install codium extensions
+  ansible.builtin.command: >
+    codium --install-extension {{ item }}
+    creates=~/.vscode-oss/extensions/{{ item }}-*
+  with_items: "{{ code_extensions }}"
