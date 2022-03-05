@@ -51,26 +51,9 @@
         creates=~/.nvm/nvm.sh
       when: nvm_version != ""
 
-    - name: Make sure the right version of node is installed
-      when: nvm_install_version != ""
-      shell: |
-        source ~/.nvm/nvm.sh
-        nvm install {{ nvm_install_version }}
-        nvm alias default {{ nvm_install_version }}
-        nvm use {{ nvm_install_version }}
-        creates="~/.nvm/versions/node/v{{ nvm_install_version }}"
-
-    - name: Make sure the right version of python is installed
-      when: pyenv_install_version != ""
-      shell: |
-        pyenv install {{ pyenv_install_version }}
-        pyenv global {{ pyenv_install_version }}
-        creates="~/.pyenv/versions/{{ pyenv_install_version }}"
-
-    - name: Make sure the right version of go is installed
-      when: gvm_install_version != ""
-      shell: |
-        source ~/.gvm/scripts/gvm
-        gvm install {{ gvm_install_version }} -B
-        gvm use {{ gvm_install_version }} --default
-        creates="~/.gvm/gos/{{ gvm_install_version }}"
+    - include_role:
+        name: jonavdm.versions
+      vars:
+        nvm_version: "{{ nvm_install_version }}"
+        # gvm_version: "{{ gvm_install_version }}" # TODO: Fix this, somehow
+        py_version: "{{ pyenv_install_version }}"
