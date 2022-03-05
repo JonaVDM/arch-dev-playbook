@@ -16,7 +16,6 @@ aur_packages:
   - pyenv
   - wol-systemd
   - visual-studio-code-bin
-  - vscodium-bin
   # - ncspot
 
 dotfiles_folder: ~/.dotfiles
@@ -48,31 +47,3 @@ pyenv_install_version: "3.10.1"
 gnome_extensions:
   - name: dash-to-dock@micxgx.gmail.com
     version: 71
-
-code_extensions:
-  - angular.ng-template
-  - redhat.ansible
-  - hookyqr.beautify
-  - aaron-bond.better-comments
-  - bungcip.better-toml
-  - dart-code.dart-code
-  - rid9.datetime
-  - ms-azuretools.vscode-docker
-  - mikestead.dotenv
-  - editorconfig.editorconfig
-  - dbaeumer.vscode-eslint
-  - dart-code.flutter
-  - mhutchie.git-graph
-  - eamodio.gitlens
-  - golang.go
-  - pkief.material-icon-theme
-  - arcticicestudio.nord-visual-studio-code
-  - esbenp.prettier-vscode
-  - jeroen-meijer.pubspec-assist
-  - ms-python.python
-  - mechatroner.rainbow-csv
-  - humao.rest-client
-  - matklad.rust-analyzer
-  - ban.spellright
-  - bradlc.vscode-tailwindcss
-  - shyykoserhiy.vscode-spotify

@@ -70,5 +70,3 @@
         gvm install {{ gvm_install_version }} -B
         gvm use {{ gvm_install_version }} --default
         creates="~/.gvm/gos/{{ gvm_install_version }}"
-
-    - ansible.builtin.import_tasks: tasks/codium.yml
