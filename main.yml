@@ -30,12 +30,12 @@
         state: latest
       with_items: "{{ pacman_packages }}"
 
-    - name: ensure AUR packages are installed
-      community.general.pacman:
-        name: "{{ item }}"
-        state: latest
-        executable: yay
-      with_items: "{{aur_packages}}"
+    # - name: ensure AUR packages are installed
+    #   community.general.pacman:
+    #     name: "{{ item }}"
+    #     state: latest
+    #     executable: yay
+    #   with_items: "{{aur_packages}}"
 
     - name: Ensure wake on lan is on and enabled
       become: true
