@@ -3,7 +3,7 @@
   hosts: all
 
   vars_files:
-    - default.config.yml
+    - config.yml
 
   tasks:
     - name: ensure pacman cache is up to data
@@ -12,7 +12,11 @@
         update_cache: true
 
     - import_tasks: "tasks/yay.yml"
-    - import_tasks: "tasks/dotfiles.yml"
+
+    - ansible.builtin.import_role:
+        name: jonavdm.dotfiles
+
+    # - import_tasks: "tasks/dotfiles.yml"
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"

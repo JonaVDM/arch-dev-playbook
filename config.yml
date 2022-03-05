@@ -18,19 +18,6 @@ aur_packages:
   - visual-studio-code-bin
   # - ncspot
 
-dotfiles_folder: ~/.dotfiles
-dotfiles_repo: https://github.com/JonaVDM/dotfiles.git
-dotfiles_files:
-  - name: .zshrc
-    dest: "~"
-  - name: .gitconfig
-    dest: "~"
-  - name: .tmux.conf
-    dest: "~"
-dotfiles_folders:
-  - name: alacritty
-    dest: ~/.config/alacritty
-
 enable_gnome: true
 enable_wake_on_lan: true
 wol_interface: enp5s0
