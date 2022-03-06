@@ -11,49 +11,26 @@
       community.general.pacman:
         update_cache: true
 
-    - import_tasks: "tasks/yay.yml"
-
+    - ansible.builtin.import_tasks: "tasks/packages.yml"
     - ansible.builtin.import_role:
         name: jonavdm.dotfiles
-
-    # - import_tasks: "tasks/dotfiles.yml"
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"
     - import_tasks: "tasks/kde.yml"
       when: enable_kde
 
-    - name: Ensure pacman packages are installed
-      become: true
-      community.general.pacman:
-        name: "{{ item }}"
-        state: latest
-      with_items: "{{ pacman_packages }}"
-
-    # - name: ensure AUR packages are installed
-    #   community.general.pacman:
-    #     name: "{{ item }}"
-    #     state: latest
-    #     executable: yay
-    #   with_items: "{{aur_packages}}"
-
     - name: Ensure wake on lan is on and enabled
       become: true
       ansible.builtin.service:
         name: wol@{{ wol_interface }}
         state: started
-        # enabled: true
+        enabled: true
       when: enable_wake_on_lan
-
-    - name: Make sure nvm is installed
-      shell: >
-        curl https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | sh
-        creates=~/.nvm/nvm.sh
-      when: nvm_version != ""
 
     - include_role:
         name: jonavdm.versions
       vars:
         nvm_version: "{{ nvm_install_version }}"
-        # gvm_version: "{{ gvm_install_version }}" # TODO: Fix this, somehow
+        gvm_version: "{{ gvm_install_version }}" # TODO: Fix this, somehow
         py_version: "{{ pyenv_install_version }}"

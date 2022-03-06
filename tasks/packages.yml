@@ -1,0 +1,20 @@
+---
+- name: Install pacman things
+  become: true
+  community.general.pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ pacman_packages }}"
+
+- name: Install yay
+  kewlfft.aur.aur:
+    name: yay
+    state: latest
+    use: makepkg
+
+- name: Install AUR packages
+  kewlfft.aur.aur:
+    use: yay
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ aur_packages }}"
