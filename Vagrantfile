@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "archlinux/archlinux"
   config.vm.synced_folder ".", "/vagrant_data", disabled: true
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
+    vb.memory = "2048"
     vb.gui = true
   end
 

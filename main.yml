@@ -22,6 +22,8 @@
     - import_tasks: "tasks/shell.yml"
     - import_tasks: "tasks/gnome.yml"
       when: enable_gnome
+    - import_tasks: "tasks/kde.yml"
+      when: enable_kde
 
     - name: Ensure pacman packages are installed
       become: true

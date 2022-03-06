@@ -36,3 +36,15 @@ pyenv_install_version: "3.10.1"
 gnome_extensions:
   - name: dash-to-dock@micxgx.gmail.com
     version: 71
+
+enable_kde: true
+install_sway: true
+
+kde_pac_packages:
+  - plasma
+  - plasma-wayland-session
+  - kde-applications
+  - sddm
+# sway_pac_packages:
+#   - sway
+#   -

@@ -1,0 +1,20 @@
+---
+- name: Install required pacman packages
+  community.general.pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "{{ kde_pac_packages }}"
+  become: true
+
+- name: Enable sddm service
+  ansible.builtin.service:
+    name: sddm.service
+    state: started
+    enabled: true
+# - name: Install sway and releted packages
+#   community.general.pacman:
+#     name:
+#     state: latest
+#   with_items: "{{ sway_pac_packages }}"
+#   when: install_sway
