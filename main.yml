@@ -12,6 +12,7 @@
         update_cache: true
 
     - ansible.builtin.import_tasks: "tasks/packages.yml"
+    - ansible.builtin.import_tasks: "tasks/node.yml"
     - ansible.builtin.import_role:
         name: jonavdm.dotfiles
     - import_tasks: "tasks/tmux.yml"
