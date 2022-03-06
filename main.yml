@@ -20,8 +20,6 @@
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"
-    - import_tasks: "tasks/gnome.yml"
-      when: enable_gnome
     - import_tasks: "tasks/kde.yml"
       when: enable_kde
 

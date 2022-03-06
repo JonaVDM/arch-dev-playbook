@@ -20,22 +20,16 @@ aur_packages:
   - pyenv-virtualenv
   # - ncspot
 
-enable_gnome: false
 enable_wake_on_lan: false
 wol_interface: enp5s0
 
 background_url: https://drive.google.com/uc?export=download&id=1SHfbSD5SBpfJXsWNRDk4f_dngHC26kC6
 shell: zsh
 ohmyzsh_path: ~/.oh-my-zsh
-gvm_install_version: go1.17.6
+# gvm_install_version: go1.17.6
 nvm_install_version: "16.13.2"
 nvm_version: "v0.39.1"
 pyenv_install_version: "3.10.1"
-
-# https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v65.shell-extension.zip
-gnome_extensions:
-  - name: dash-to-dock@micxgx.gmail.com
-    version: 71
 
 enable_kde: true
 install_sway: true
