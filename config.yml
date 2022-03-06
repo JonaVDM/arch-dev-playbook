@@ -10,10 +10,12 @@ pacman_packages:
   - net-tools
   - openssh
   - pyenv
+  - ttf-fira-code
   - zsh
 
 aur_packages:
   - gvm
+  - nerd-fonts-hack
   - pyenv-virtualenv
   - visual-studio-code-bin
   - wol-systemd
