@@ -1,0 +1,5 @@
+---
+- name: Install nvidia driver
+  community.general.pacman:
+    name: "{{ item }}"
+  with_items: "{{ nvidia_driver }}"

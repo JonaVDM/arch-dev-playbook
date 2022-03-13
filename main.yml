@@ -3,7 +3,8 @@
   hosts: all
 
   vars_files:
-    - config.yml
+    - main.config.yml
+    - packages.config.yml
 
   tasks:
     - name: ensure pacman cache is up to data
@@ -18,8 +19,15 @@
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"
+
+    - ansible.builtin.import_tasks: "tasks/zsh.yml"
+      when: shell == "zsh"
+
     - import_tasks: "tasks/kde.yml"
       when: enable_kde
+
+    - ansible.builtin.import_tasks: "tasks/nvidia.yml"
+      when: nvidia_gpu
 
     - name: Ensure wake on lan is on and enabled
       become: true
