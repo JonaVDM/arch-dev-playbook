@@ -3,6 +3,7 @@ pacman_packages:
   - alacritty
   - base-devel
   - curl
+  - discord
   - fakeroot
   - firefox
   - git
