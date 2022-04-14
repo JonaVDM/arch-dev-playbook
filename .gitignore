@@ -18,6 +18,7 @@ roles/
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+!.vscode/settings.json
 
 # Local History for Visual Studio Code
 .history/
