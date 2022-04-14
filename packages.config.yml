@@ -30,6 +30,11 @@ kde_pac_packages:
   - plasma-wayland-session
   - kde-applications
   - sddm
-# sway_pac_packages:
-#   - sway
-#   -
+
+sway_pac_packages:
+  - sway
+  - wofi
+  - waybar
+  - mako
+  - qtkeychain
+  - gnome-keyring
