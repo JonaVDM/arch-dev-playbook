@@ -13,6 +13,7 @@ pacman_packages:
   - pyenv
   - ttf-fira-code
   - zsh
+  - github-cli
 
 aur_packages:
   - gvm
@@ -38,3 +39,8 @@ sway_pac_packages:
   - mako
   - qtkeychain
   - gnome-keyring
+  - pulseaudio
+  - playerctl
+  - python-gobject
+  - gtk3
+  - pavucontrol
