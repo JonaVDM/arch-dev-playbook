@@ -29,6 +29,9 @@
     - ansible.builtin.import_tasks: "tasks/nvidia.yml"
       when: nvidia_gpu
 
+    - ansible.builtin.import_tasks: "tasks/sway.yml"
+      when: enable_sway
+
     - name: Ensure wake on lan is on and enabled
       become: true
       ansible.builtin.service:
