@@ -12,8 +12,6 @@
       community.general.pacman:
         update_cache: true
 
-    - debug: "{{ enable_sway }}"
-
     - name: update Dotfiles when sway is enabled
       ansible.builtin.set_fact:
         dotfiles_files: "{{ dotfiles_files + sway_dotfiles }}"
@@ -26,6 +24,12 @@
     - import_tasks: "tasks/tmux.yml"
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"
+
+    - name: Make sure the background image is downloaded
+      ansible.builtin.get_url:
+        url: "{{ background_url }}"
+        dest: ~/Pictures/background.jpg
+      when: background_url != "" and (enable_kde or enable_sway)
 
     - ansible.builtin.import_tasks: "tasks/zsh.yml"
       when: shell == "zsh"

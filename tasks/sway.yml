@@ -1,7 +1,21 @@
 ---
 - name: Install the required packages
+  become: true
   community.general.pacman:
     name: "{{ item }}"
     state: latest
   with_items:
     - "{{ sway_pac_packages }}"
+
+- name: Make sure .zprofile exists
+  file:
+    path: ~/.zprofile
+    state: touch
+
+- name: Insert auto start of sway into .zprofile
+  blockinfile:
+    path: ~/.zprofile
+    block: |
+      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+        exec sway
+      fi
