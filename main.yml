@@ -25,6 +25,11 @@
     - import_tasks: "tasks/nvim.yml"
     - import_tasks: "tasks/shell.yml"
 
+    - name: Make sure the Pictures folder exists
+      ansible.builtin.file:
+        path: ~/Pictures
+        state: directory
+
     - name: Make sure the background image is downloaded
       ansible.builtin.get_url:
         url: "{{ background_url }}"
