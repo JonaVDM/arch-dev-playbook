@@ -12,6 +12,13 @@
       community.general.pacman:
         update_cache: true
 
+    - debug: "{{ enable_sway }}"
+
+    - name: update Dotfiles when sway is enabled
+      ansible.builtin.set_fact:
+        dotfiles_files: "{{ dotfiles_files + sway_dotfiles }}"
+      when: enable_sway
+
     - ansible.builtin.import_tasks: "tasks/packages.yml"
     - ansible.builtin.import_tasks: "tasks/node.yml"
     - ansible.builtin.import_role:
