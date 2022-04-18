@@ -30,11 +30,12 @@
         path: ~/Pictures
         state: directory
 
-    - name: Make sure the background image is downloaded
-      ansible.builtin.get_url:
-        url: "{{ background_url }}"
-        dest: ~/Pictures/background.jpg
-      when: background_url != "" and (enable_kde or enable_sway)
+    - name: Copy the backgrounds over from the dotfiles
+      ansible.builtin.copy:
+        dest: "{{ item.dest }}"
+        src: "{{ item.src }}"
+      with_items: "{{ dotfiles_backgrounds }}"
+      when: enable_kde or enable_sway
 
     - ansible.builtin.import_tasks: "tasks/zsh.yml"
       when: shell == "zsh"

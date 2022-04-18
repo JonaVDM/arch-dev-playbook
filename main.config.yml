@@ -5,8 +5,7 @@ enable_wake_on_lan: false
 wol_interface: enp5s0
 
 enable_kde: false
-enable_sway: false
-background_url: https://drive.google.com/uc?export=download&id=1SHfbSD5SBpfJXsWNRDk4f_dngHC26kC6
+enable_sway: true
 
 shell: zsh
 ohmyzsh_path: ~/.oh-my-zsh
@@ -23,3 +22,9 @@ sway_dotfiles:
     dest: ~/.config/waybar
   - src: mako
     dest: ~/.config/mako
+
+dotfiles_backgrounds:
+  - src: ~/.dotfiles/nord-colors.png
+    dest: ~/.Pictures/wallpaper.png
+  - src: ~/.dotfiles/dark-top.jpg
+    dest: ~/.Pictures/lock-screen.jpg
