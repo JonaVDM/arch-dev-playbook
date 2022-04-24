@@ -14,6 +14,8 @@ pacman_packages:
   - ttf-fira-code
   - zsh
   - github-cli
+  - docker
+  - fuse-overlayfs
 
 aur_packages:
   - gvm
@@ -21,6 +23,7 @@ aur_packages:
   - pyenv-virtualenv
   - visual-studio-code-bin
   - wol-systemd
+  - docker-rootless-extras-bin
   # - ncspot
 
 nvidia_driver:
@@ -44,3 +47,6 @@ sway_pac_packages:
   - python-gobject
   - gtk3
   - pavucontrol
+  - grim
+  - wl-clipboard
+  - slurp
