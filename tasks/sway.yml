@@ -19,3 +19,18 @@
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
         exec sway
       fi
+
+- name: Temp clone the rofi-themes-collection repo
+  ansible.builtin.git:
+    repo: https://github.com/lr-tech/rofi-themes-collection.git
+    dest: /tmp/rofi-themes-collection
+
+- name: Make sure the rofi themes folder exists
+  ansible.builtin.file:
+    path: ~/.local/share/rofi/themes/
+    state: directory
+
+- name: Copy rofi theme over to the themes folder
+  ansible.builtin.copy:
+    src: /tmp/rofi-themes-collection/{{ rofi_theme }}
+    dest: /.local/share/rofi/themes/
