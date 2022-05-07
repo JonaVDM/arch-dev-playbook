@@ -16,6 +16,7 @@ pacman_packages:
   - github-cli
   - docker
   - fuse-overlayfs
+  - libreoffice-still
 
 aur_packages:
   - gvm
@@ -24,7 +25,7 @@ aur_packages:
   - visual-studio-code-bin
   - wol-systemd
   - docker-rootless-extras-bin
-  # - ncspot
+  - ncspot
 
 nvidia_driver:
   - mesa
@@ -37,7 +38,6 @@ kde_pac_packages:
 
 sway_pac_packages:
   - sway
-  - wofi
   - waybar
   - mako
   - qtkeychain
@@ -50,3 +50,4 @@ sway_pac_packages:
   - grim
   - wl-clipboard
   - slurp
+  - rofi
