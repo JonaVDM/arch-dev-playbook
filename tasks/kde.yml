@@ -12,9 +12,3 @@
     name: sddm.service
     state: started
     enabled: true
-# - name: Install sway and releted packages
-#   community.general.pacman:
-#     name:
-#     state: latest
-#   with_items: "{{ sway_pac_packages }}"
-#   when: install_sway

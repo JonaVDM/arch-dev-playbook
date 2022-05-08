@@ -38,6 +38,8 @@ kde_pac_packages:
 
 sway_pac_packages:
   - sway
+  - swaylock
+  - swayidle
   - waybar
   - mako
   - qtkeychain
