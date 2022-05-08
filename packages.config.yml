@@ -25,7 +25,7 @@ aur_packages:
   - visual-studio-code-bin
   - wol-systemd
   - docker-rootless-extras-bin
-  - ncspot
+    # - ncspot
 
 nvidia_driver:
   - mesa

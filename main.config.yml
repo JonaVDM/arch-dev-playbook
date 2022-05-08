@@ -26,9 +26,9 @@ sway_dotfiles:
     dest: ~/.config/rofi
 
 dotfiles_backgrounds:
-  - src: ~/.dotfiles/nord-colors.png
-    dest: ~/.Pictures/wallpaper.png
-  - src: ~/.dotfiles/dark-top.jpg
-    dest: ~/.Pictures/lock-screen.jpg
+  - src: ~/.dotfiles/pictures/nord-colors.png
+    dest: ~/Pictures/wallpaper.png
+  - src: ~/.dotfiles/pictures/dark-top.jpg
+    dest: ~/Pictures/lock-screen.jpg
 
 rofi_theme: squared-nord.rasi
