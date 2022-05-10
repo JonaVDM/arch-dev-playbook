@@ -12,14 +12,6 @@
     path: ~/.zprofile
     state: touch
 
-- name: Insert auto start of sway into .zprofile
-  blockinfile:
-    path: ~/.zprofile
-    block: |
-      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-        exec sway
-      fi
-
 - name: Temp clone the rofi-themes-collection repo
   ansible.builtin.git:
     repo: https://github.com/lr-tech/rofi-themes-collection.git
