@@ -7,10 +7,11 @@
     - packages.config.yml
 
   tasks:
-    - name: ensure pacman cache is up to data
+    - name: Ensure pacman cache and system are up to date
       become: true
       community.general.pacman:
         update_cache: true
+        upgrade: true
 
     - name: update Dotfiles when sway is enabled
       ansible.builtin.set_fact:
@@ -48,6 +49,9 @@
 
     - ansible.builtin.import_tasks: "tasks/sway.yml"
       when: enable_sway
+
+    - ansible.builtin.import_tasks: "tasks/display_manager.yml"
+      when: display_manager
 
     - name: Ensure wake on lan is on and enabled
       become: true

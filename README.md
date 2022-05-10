@@ -28,4 +28,5 @@ So for now this has to be done after the run.
 ```bash
 sudo systemctl enable wol@[interface]
 sudo systemctl enable gdm
+sudo systemctl enable greetd
 ```

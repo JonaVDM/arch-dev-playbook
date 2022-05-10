@@ -34,6 +34,7 @@
   ansible.builtin.copy:
     src: /tmp/rofi-themes-collection/themes/{{ rofi_theme }}
     dest: ~/.local/share/rofi/themes/
+    remote_src: true
 
 - name: Install powermenu
   kewlfft.aur.aur:

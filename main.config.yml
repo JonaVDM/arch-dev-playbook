@@ -32,3 +32,4 @@ dotfiles_backgrounds:
     dest: ~/Pictures/lock-screen.jpg
 
 rofi_theme: squared-nord.rasi
+display_manager: true
