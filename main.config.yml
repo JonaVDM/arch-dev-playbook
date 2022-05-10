@@ -33,3 +33,4 @@ dotfiles_backgrounds:
 
 rofi_theme: squared-nord.rasi
 display_manager: true
+docker_rootless: true

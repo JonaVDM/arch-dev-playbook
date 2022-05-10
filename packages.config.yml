@@ -14,7 +14,6 @@ pacman_packages:
   - ttf-fira-code
   - zsh
   - github-cli
-  - docker
   - fuse-overlayfs
   - libreoffice-still
   - unzip
@@ -26,7 +25,6 @@ aur_packages:
   - pyenv-virtualenv
   - visual-studio-code-bin
   - wol-systemd
-  - docker-rootless-extras-bin
     # - ncspot
 
 nvidia_driver:

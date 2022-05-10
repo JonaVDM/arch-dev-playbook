@@ -53,6 +53,8 @@
     - ansible.builtin.import_tasks: "tasks/display_manager.yml"
       when: display_manager
 
+    - ansible.builtin.import_tasks: "tasks/docker.yml"
+
     - name: Ensure wake on lan is on and enabled
       become: true
       ansible.builtin.service:
