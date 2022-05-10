@@ -17,6 +17,8 @@ pacman_packages:
   - docker
   - fuse-overlayfs
   - libreoffice-still
+  - unzip
+  - zip
 
 aur_packages:
   - gvm
