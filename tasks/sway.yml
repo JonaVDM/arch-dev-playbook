@@ -35,3 +35,6 @@
     content: |
       --enable-features=UseOzonePlatform
       --ozone-platform=wayland
+  with_items:
+    - ~/.config/electron-flags.conf
+    - ~/.config/electron16-flags.conf
