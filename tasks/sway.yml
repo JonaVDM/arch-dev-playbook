@@ -7,11 +7,6 @@
   with_items:
     - "{{ sway_pac_packages }}"
 
-- name: Make sure .zprofile exists
-  file:
-    path: ~/.zprofile
-    state: touch
-
 - name: Temp clone the rofi-themes-collection repo
   ansible.builtin.git:
     repo: https://github.com/lr-tech/rofi-themes-collection.git
@@ -33,3 +28,10 @@
     name: rofi-power-menu
     state: latest
     use: yay
+
+- name: Make electron work better with wayland
+  ansible.builtin.copy:
+    dest: ~/.config/electron-flags.conf
+    content: |
+      --enable-features=UseOzonePlatform
+      --ozone-platform=wayland

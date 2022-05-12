@@ -18,6 +18,7 @@ pacman_packages:
   - libreoffice-still
   - unzip
   - zip
+  - pactl
 
 aur_packages:
   - gvm
@@ -53,3 +54,4 @@ sway_pac_packages:
   - wl-clipboard
   - slurp
   - rofi
+  - xorg-xwayland
