@@ -38,3 +38,8 @@
   with_items:
     - ~/.config/electron-flags.conf
     - ~/.config/electron16-flags.conf
+
+- name: Install autotiling
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nwg-piotr/autotiling/master/autotiling/main.py
+    dest: ~/.dotfiles/sway/scripts/tiling.py
