@@ -1,5 +1,0 @@
-- name: Make sure nvm is installed
-  shell: >
-    curl https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh | sh
-    creates=~/.nvm/nvm.sh
-  when: nvm_version != ""

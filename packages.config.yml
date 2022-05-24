@@ -18,7 +18,6 @@ pacman_packages:
   - libreoffice-still
   - unzip
   - zip
-  - pactl
 
 aur_packages:
   - gvm
@@ -26,10 +25,11 @@ aur_packages:
   - pyenv-virtualenv
   - visual-studio-code-bin
   - wol-systemd
+  - nvm
+  - cava
     # - ncspot
 
-nvidia_driver:
-  - mesa
+nvidia_driver: mesa
 
 kde_pac_packages:
   - plasma
@@ -55,3 +55,4 @@ sway_pac_packages:
   - slurp
   - rofi
   - xorg-xwayland
+  - libpulse

@@ -11,9 +11,9 @@ shell: zsh
 ohmyzsh_path: ~/.oh-my-zsh
 
 nvm_version: "v0.39.1"
-gvm_install_version: go1.17.6
-nvm_install_version: "16.13.2"
-pyenv_install_version: "3.10.1"
+gvm_install_version: go1.18.2
+nvm_install_version: "18.2.0"
+pyenv_install_version: "3.10.4"
 
 sway_dotfiles:
   - src: sway
@@ -34,3 +34,5 @@ dotfiles_backgrounds:
 rofi_theme: squared-nord.rasi
 display_manager: true
 docker_rootless: true
+
+nvim_repo: https://github.com/jonavdm/jona-vim.git
