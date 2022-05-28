@@ -18,6 +18,11 @@ pacman_packages:
   - libreoffice-still
   - unzip
   - zip
+  - htop
+  - flake8
+  - autopep8
+  - eslint 
+  - prettier
 
 aur_packages:
   - gvm
@@ -27,6 +32,7 @@ aur_packages:
   - wol-systemd
   - nvm
   - cava
+  - tmuxinator
     # - ncspot
 
 nvidia_driver: mesa
