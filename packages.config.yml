@@ -21,8 +21,10 @@ pacman_packages:
   - htop
   - flake8
   - autopep8
-  - eslint 
+  - eslint
   - prettier
+  - neovim
+  - kitty
 
 aur_packages:
   - gvm
